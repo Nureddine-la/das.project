@@ -1,3 +1,5 @@
+import os
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -41,7 +43,8 @@ st.markdown("""
 # ── Load data ──────────────────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_csv("dataset.csv")
+    import os
+    df = pd.read_csv(os.path.join(os.path.dirname(__file__), "dataset.csv"))
     return df
 
 df = load_data()
